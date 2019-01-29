@@ -13,6 +13,9 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer } from 
 import signup from './signup.js';
 import profile from './profile.js';
 import login from './login.js';
+import forgotpassword from './forgotpassword.js';
+import resetpassword from './resetpassword.js';
+import changeemail from './changeemail.js';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -24,7 +27,10 @@ const instructions = Platform.select({
 const AppNavigator = createAppContainer(createSwitchNavigator({
   login: createStackNavigator({ login: login }),
   profile: createStackNavigator({ profile: profile }),
-  signup: createStackNavigator({ signup: signup })
+  signup: createStackNavigator({ signup: signup }),
+  forgotpassword: createStackNavigator({ forgotpassword: forgotpassword }),
+  resetpassword: createStackNavigator({ resetpassword: resetpassword }),
+  changeemail: createStackNavigator({ changeemail: changeemail })
 }, {
     initialRouteName: 'login',
   }));
