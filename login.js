@@ -49,6 +49,16 @@ export default class login extends Component {
         this.props.navigation.navigate('resetpassword');
     }
 
+    createNewUser() {
+        firebase.auth().createUserWithEmailAndPassword('al.amin@glossom.co.jp', 'abc123').then(res => {
+            debugger;
+            console.log(res);
+        }, err => {
+            debugger;
+            console.log(err);
+        });
+    }
+
     render() {
         return (
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
@@ -64,6 +74,7 @@ export default class login extends Component {
                     </TouchableOpacity>
                     <Button title={"login"} onPress={() => { this.signInUser() }}></Button>
                     <Button title={"forgot password"} onPress={() => { this.resetPassword() }}></Button>
+                    <Button title={"create new test user"} onPress={() => { this.createNewUser() }}></Button>
                 </View>
             </View>
         )

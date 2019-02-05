@@ -31,6 +31,15 @@ export default class profile extends Component {
         this.props.navigation.navigate('changeemail');
     }
 
+    sendConfirmationEmail() {
+        firebase.auth().onAuthStateChanged(user => {
+            user.sendEmailVerification().then(res => {
+                debugger;
+                console.log(res);
+            });
+        });
+    }
+
     render() {
         return (
             <View>
@@ -38,6 +47,7 @@ export default class profile extends Component {
                 <Button title="LogOut" onPress={() => { this.logoutUser() }}></Button>
                 <Button title={"Change Password"} onPress={() => { this.forgotPassword() }}></Button>
                 <Button title={"Change Email Address"} onPress={() => { this.changeEmailAddress() }}></Button>
+                <Button title={"Send confirmation email"} onPress={() => { this.sendConfirmationEmail() }}></Button>
 
             </View>
         )
